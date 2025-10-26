@@ -1,0 +1,175 @@
+/* Add background image to the whole body */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg');  /* Replace with your image URL */
+    background-size: cover;  /* Ensure the image covers the entire page */
+    background-repeat: no-repeat;  /* Prevent the image from repeating */
+    background-position: center center;  /* Center the image in the viewport */
+    font-family: Arial, sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, div, p, span {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Header styling for "Player Stats" */
+h1 {
+	font-family: 'Poppins', sans-serif;
+    font-size: 85px;  /* Make the header much bigger */
+    font-weight: 800;
+    text-align: center;  /* Center the text horizontally */
+    color: #fff;  /* White color for text */
+    margin-top: 10px;  /* Add more space from the top */
+	margin-bottom: 1px;  /* Add more space from the top */
+    text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    letter-spacing: 4px; /* spacing gives a stronger squad identity look */
+    text-transform: uppercase;  /* Make text uppercase */
+    background-image: url('');  /* Replace with your header image URL */
+    background-size: cover;  /* Make sure the image covers the header */
+    background-position: center center;  /* Center the background image */
+    padding: 5px 0;  /* Add padding for top and bottom */
+    border-radius: 8px;  /* Optional: rounded corners for the header */
+}
+
+
+/* Container to fit the image */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;  /* Make the container take up the full viewport height */
+    overflow: hidden;  /* Hide any part of the image that overflows the container */
+}
+
+/* The image itself */
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Center the image in the middle of the container */
+    width: 100%;  /* Stretch the image to fill the width of the screen */
+    height: 100%;  /* Stretch the image to fill the height of the screen */
+    object-fit: cover;  /* Ensure the image maintains its aspect ratio */
+}
+
+
+
+/* Container for the player cards */
+.table-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1100px;        /* keeps cards grouped closer together */
+    margin: 0 auto;          /* centers the whole grid on the page */
+    gap: 15px;               /* slightly smaller spacing between cards */
+    padding: 20px 0;
+    justify-items: center;
+}
+
+
+/* First row: 1 player card (span across 12 columns) */
+.table-container > .player-card:nth-child(1) {
+    grid-column: span 12;  /* The first card takes up all 12 columns */
+}
+
+/* Second row: 4 player cards (each spans 3 columns) */
+.table-container > .player-card:nth-child(n+2):nth-child(-n+5) {
+    grid-column: span 3;  /* Each of these cards takes up 3 columns */
+}
+
+/* Third row: 4 player cards (each spans 3 columns) */
+.table-container > .player-card:nth-child(n+6):nth-child(-n+9) {
+    grid-column: span 3;  /* Each of these cards takes up 3 columns */
+}
+
+/* Fourth row: 2 player cards (centered) */
+.table-container > .player-card:nth-child(n+10):nth-child(-n+11) {
+    grid-column: span 6;  /* Each of these cards takes up 6 columns */
+}
+
+
+
+
+/* Style for each player card */
+.player-card {
+    border: 2px solid #ddd;  /* Border to make the card outlined */
+    border-radius: 8px;
+    padding: 10px;  /* Reduced padding to make the card smaller */
+    width: 150px;  /* Adjusted width for a smaller card */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add shadow to give a card-like effect */
+    background-color: #000435;
+    display: flex;
+    flex-direction: column;  /* Stack image and text vertically */
+    justify-content: center;  /* Center content vertically inside the card */
+    align-items: center;  /* Center content horizontally inside the card */
+    height: 200px;  /* Reduced height to fit the content snugly */
+}
+
+/* Style for the images inside the player cards */
+.player-card img {
+    width: 90px;  /* Reduced the size of the image */
+    height: 90px;  /* Reduced the size of the image */
+    object-fit: cover;  /* Ensure the image covers the circular space without distortion */
+    border-radius: 50%;  /* Make the images circular */
+    margin-bottom: 4px;  /* Add space between the image and text */
+}
+
+
+
+/* Make player names bold */
+.player-card div:nth-of-type(1) {
+	margin-top: 5px;  /* Space between the image and the text */
+    font-weight: 700;   /* bold */
+    font-size: 18px;
+    color: #fff;       
+}
+
+/* Make stats lighter and smaller */
+.player-card div:nth-of-type(n+2) {
+    font-weight: 300;   /* light */
+    font-size: 16px;
+    opacity: 0.85;
+	color: #fff;       
+}
+
+/* Title + Wings Container */
+.title-with-wings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Title Text */
+.title-with-wings h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 4px;
+    margin: 0;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+/* Wing Appearance */
+.title-wing {
+    width: 160px;              /* Adjust size here */
+    opacity: 0.85;
+    pointer-events: none;      
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+    animation: wingFloat 3.8s ease-in-out infinite;
+}
+
+/* Flip Right Wing */
+.title-wing.right {
+    transform: scaleX(-1);
+}
+
+/* Gentle Motion Animation */
+@keyframes wingFloat {
+    0%, 100% { transform: translateY(0) scaleX(var(--flip,1)); }
+    50%      { transform: translateY(-6px) scaleX(var(--flip,1)); }
+}
+
