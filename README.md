@@ -30,22 +30,23 @@ This project recreates the look of a **matchday team sheet** or **club media lin
 
 ## 📸 Demo Preview
 
-> *(Add a screenshot here once your repo is live)*
+<img width="1566" height="916" alt="preview" src="https://github.com/user-attachments/assets/f3db6f16-dfa1-43df-a02e-dd69643b64de" />
+
 
 ---
 
 ## 🗂️ Project Structure
-angelo/
-│ index.php
-│ db_connection.php
-│ styles.css 
-│ angelo_rufc.sql
-│
-└─ images/
-├─ player1.png
-├─ player2.png
-├─ background.jpg
-└─ wings.png
+angelo/<br>
+│ index.php<br>
+│ db_connection.php<br>
+│ styles.css<br>
+│ angelo_rufc.sql<br>
+│<br>
+└─ images/<br>
+├─ player1.png<br>
+├─ player2.png<br>
+├─ background.jpg<br>
+└─ wings.png<br>
 
 ---
 
